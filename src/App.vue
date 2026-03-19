@@ -87,22 +87,8 @@ const wedding = {
   rsvpDeadline: '1 августа 2026',
 }
 
-const decorativeDots = Array.from({ length: 18 }, (_, index) => {
-  const left = `${6 + ((index * 11) % 88)}%`
-  const delay = `${(index % 6) * 0.7}s`
-  const duration = `${7 + (index % 5)}s`
-  const size = `${6 + (index % 4) * 4}px`
-
-  return {
-    left,
-    delay,
-    duration,
-    size,
-  }
-})
-
 const isReducedMotion = ref(false)
-const revealedSections = ref(new Set())
+const revealedSections = ref(new Set(['story']))
 const sectionIds = ['story', 'details', 'timeline', 'rsvp']
 let mediaQuery
 let observer
@@ -169,24 +155,6 @@ onBeforeUnmount(() => {
 <template>
   <div class="page-shell">
     <PetalCanvas />
-    <div class="ambient-glow ambient-glow-left"></div>
-    <div class="ambient-glow ambient-glow-right"></div>
-
-    <div class="sparkles" aria-hidden="true">
-      <span
-        v-for="(dot, index) in decorativeDots"
-        :key="index"
-        class="sparkle"
-        :style="{
-          left: dot.left,
-          width: dot.size,
-          height: dot.size,
-          animationDelay: dot.delay,
-          animationDuration: dot.duration,
-        }"
-      ></span>
-    </div>
-
     <HeroSection :wedding="wedding" />
 
     <main class="main-content">

@@ -81,45 +81,6 @@ textarea {
   padding: 24px;
 }
 
-.ambient-glow {
-  position: fixed;
-  z-index: -1;
-  width: 32rem;
-  height: 32rem;
-  border-radius: 999px;
-  filter: blur(80px);
-  opacity: 0.45;
-  pointer-events: none;
-}
-
-.ambient-glow-left {
-  top: -10rem;
-  left: -8rem;
-  background: rgba(241, 188, 158, 0.65);
-}
-
-.ambient-glow-right {
-  top: 18rem;
-  right: -8rem;
-  background: rgba(174, 201, 181, 0.6);
-}
-
-.sparkles {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.sparkle {
-  position: absolute;
-  top: -10%;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
-  opacity: 0.55;
-  animation: drift linear infinite;
-}
-
 .hero-card,
 .section-card {
   width: min(1180px, 100%);
@@ -135,8 +96,8 @@ textarea {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.9fr);
   gap: 32px;
-  min-height: calc(100vh - 64px);
-  padding: var(--hero-padding);
+  min-height: 0;
+  padding: calc(var(--hero-padding) + 28px) var(--hero-padding) var(--hero-padding);
   border-radius: 40px;
   position: relative;
 }
@@ -445,7 +406,7 @@ textarea {
 .hero-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .eyebrow,
@@ -459,9 +420,10 @@ textarea {
 
 .eyebrow,
 .section-kicker {
-  margin: 0 0 18px;
+  margin: 0;
   color: var(--sage);
   font-size: 0.78rem;
+     background: #fef6f050 !important;
 }
 
 .hero-names,
@@ -643,8 +605,23 @@ textarea {
 }
 
 .section-card {
-  padding: var(--section-padding);
+  padding: calc(var(--section-padding) + 28px) var(--section-padding) var(--section-padding);
   border-radius: 34px;
+}
+
+.section-card > .section-kicker {
+  position: absolute;
+  top: var(--frame-inset);
+  left: calc(var(--frame-inset) + 22px);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100% - ((var(--frame-inset) + 22px) * 2));
+  padding: 0 0.9rem 0 0;
+  background: var(--bg-card);
+  transform: translateY(-50%);
+  width: max-content !important;
 }
 
 .section-heading h2 {
@@ -653,14 +630,6 @@ textarea {
   font-size: clamp(2.8rem, 5vw, 4.4rem);
   line-height: 1;
   font-weight: 400;
-}
-
-.section-kicker,
-.eyebrow {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
 }
 
 .section-kicker::after,
@@ -751,15 +720,19 @@ textarea {
 }
 
 .map-card {
-  position: sticky;
-  top: 24px;
+  position: relative;
+  top: auto;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .map-frame {
   height: 240px;
   margin-bottom: 16px;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   border: 1px solid rgba(139, 92, 72, 0.16);
   border-radius: 22px;
   background:
@@ -771,6 +744,7 @@ textarea {
 .map-embed {
   width: 100%;
   height: 100%;
+  max-width: 100%;
   border: 0;
   display: block;
 }
@@ -917,22 +891,6 @@ textarea {
   line-height: 1.6;
 }
 
-@keyframes drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(0.6);
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 0.55;
-  }
-
-  100% {
-    transform: translate3d(18px, 120vh, 0) scale(1.2);
-    opacity: 0;
-  }
-}
-
 @media (max-width: 960px) {
   :root {
     --frame-inset: 16px;
@@ -967,6 +925,11 @@ textarea {
 
   .hero-aside {
     gap: 18px;
+  }
+
+  .section-card > .section-kicker {
+    left: calc(var(--frame-inset) + 18px);
+    max-width: calc(100% - ((var(--frame-inset) + 18px) * 2));
   }
 
   .hero-nav {
@@ -1050,7 +1013,8 @@ textarea {
     row-gap: 0.04em;
     max-width: 100%;
     font-size: clamp(4rem, 18vw, 5.8rem);
-    line-height: 0.88;
+    line-height: 0.28;
+        margin-top: 20px;
   }
 
   .hero-name {
@@ -1071,6 +1035,16 @@ textarea {
     max-width: 100%;
   }
 
+  .section-card > .section-kicker {
+    left: 50%;
+    max-width: calc(100% - 36px);
+    padding: 0 0.75rem;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.45;
+    transform: translate(-50%, -50%);
+  }
+
   .hero-nav {
     grid-template-columns: 1fr;
   }
@@ -1081,7 +1055,7 @@ textarea {
 
   .section-kicker::after,
   .eyebrow::after {
-    width: 42px;
+    display: none;
   }
 
   .details-highlight > div {
@@ -1121,17 +1095,28 @@ textarea {
     --section-padding: 24px;
   }
 
-  .hero-card,
+  .hero-card {
+    padding: calc(var(--hero-padding) + 24px) var(--hero-padding) var(--hero-padding);
+  }
+
   .section-card {
+    padding: calc(var(--section-padding) + 24px) var(--section-padding) var(--section-padding);
   }
 
   .hero-names {
     font-size: clamp(3rem, 18vw, 4.6rem);
-    line-height: 0.88;
+    line-height: 0.28;
+    margin-top: 20px;
   }
 
   .section-heading h2 {
     font-size: 2.6rem;
+  }
+
+  .section-card > .section-kicker {
+    max-width: calc(100% - 24px);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 
   .story-card,
@@ -1174,7 +1159,6 @@ textarea {
     scroll-behavior: auto;
   }
 
-  .sparkle,
   .reveal-section,
   .hero-nav a,
   .button {

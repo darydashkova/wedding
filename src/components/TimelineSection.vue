@@ -17,8 +17,9 @@ defineProps({
       <span class="decor-pearl decor-pearl-f"></span>
     </div>
 
+    <p class="section-kicker">Тайминг дня</p>
+
     <div class="section-heading">
-      <p class="section-kicker">Тайминг дня</p>
       <h2>Неспешный праздник с красивым ритмом</h2>
     </div>
 

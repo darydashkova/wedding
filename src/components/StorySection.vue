@@ -17,8 +17,9 @@ defineProps({
       <span class="decor-pearl decor-pearl-e"></span>
     </div>
 
+    <p class="section-kicker">Наша история</p>
+
     <div class="section-heading">
-      <p class="section-kicker">Наша история</p>
       <h2>Каждая важная глава привела нас к этому дню</h2>
     </div>
 

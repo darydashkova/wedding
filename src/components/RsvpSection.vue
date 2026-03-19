@@ -91,9 +91,10 @@ const handleSubmit = async () => {
       <span class="decor-pearl decor-pearl-e"></span>
     </div>
 
+    <p class="section-kicker">Подтверждение участия</p>
+
     <div>
       <div class="section-heading">
-        <p class="section-kicker">Подтверждение участия</p>
         <h2>Пожалуйста, подтвердите присутствие до {{ wedding.rsvpDeadline }}</h2>
       </div>
       <p class="rsvp-copy">

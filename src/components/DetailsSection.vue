@@ -17,9 +17,10 @@ defineProps({
       <span class="decor-pearl decor-pearl-e"></span>
     </div>
 
+    <p class="section-kicker">Дата и место</p>
+
     <div>
       <div class="section-heading">
-        <p class="section-kicker">Дата и место</p>
         <h2>Ждём вас там, где лес встречается с огнями праздника</h2>
       </div>
 
