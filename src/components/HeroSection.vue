@@ -244,7 +244,7 @@ onBeforeUnmount(() => {
       </div>
 
       <nav class="hero-nav" aria-label="Навигация по приглашению">
-        <a href="#story">История</a>
+        <a href="#story">Приглашение</a>
         <a href="#details">Дата и место</a>
         <a href="#timeline">Тайминг</a>
         <a href="#rsvp">Подтвердить участие</a>

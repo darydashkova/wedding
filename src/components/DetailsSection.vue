@@ -21,7 +21,7 @@ defineProps({
 
     <div>
       <div class="section-heading">
-        <h2>Ждём вас там, где лес встречается с огнями праздника</h2>
+        <h2>Будем рады видеть вас рядом в этот особенный день</h2>
       </div>
 
       <div class="details-highlight">
@@ -30,7 +30,7 @@ defineProps({
           <strong>{{ wedding.date.full }}</strong>
         </div>
         <div>
-          <span class="label">Время</span>
+          <span class="label">Начало</span>
           <strong>{{ wedding.date.time }}</strong>
         </div>
       </div>
@@ -52,9 +52,10 @@ defineProps({
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <p class="map-title">Маршрут</p>
+      <p class="map-title">Банкет</p>
       <p class="map-copy">
-        Откройте карту, чтобы построить маршрут до места проведения. Если удобнее, можно сразу перейти в Яндекс Карты по кнопке ниже.
+        После росписи ждём вас на праздничный ужин в ресторане "Nonna Mia", Бабушкина 293/1. По кнопке ниже
+        можно сразу открыть маршрут.
       </p>
       <a class="button button-secondary" :href="wedding.place.mapUrl" target="_blank" rel="noreferrer">
         Открыть карту

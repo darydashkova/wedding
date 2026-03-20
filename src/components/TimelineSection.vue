@@ -20,7 +20,7 @@ defineProps({
     <p class="section-kicker">Тайминг дня</p>
 
     <div class="section-heading">
-      <h2>Неспешный праздник с красивым ритмом</h2>
+      <h2>Делимся расписанием самого важного для нас вечера</h2>
     </div>
 
     <div class="timeline-list">
