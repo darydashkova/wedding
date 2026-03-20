@@ -173,11 +173,7 @@ const handleSubmit = async () => {
       <button class="button" type="submit" :disabled="isSubmitting">
         {{ isSubmitting ? 'Отправляем...' : 'Подтвердить' }}
       </button>
-      <p class="form-note">
-        Ответ будет отправлен на chernyavskiilev@yandex.ru. После первой тестовой заявки FormSubmit попросит
-        подтвердить этот адрес по email.
-      </p>
-      <p v-if="submitted" class="form-success">Ответ отправлен. Спасибо, мы получили ваше подтверждение.</p>
+      <p v-if="submitted" class="form-success">Мы получили ваш ответ, спасибо.</p>
       <p v-if="submitError" class="form-error">{{ submitError }}</p>
     </form>
   </div>
