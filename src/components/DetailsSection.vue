@@ -35,10 +35,12 @@ defineProps({
         </div>
       </div>
 
-      <div class="place-card">
-        <h3>{{ wedding.place.venue }}</h3>
-        <p>{{ wedding.place.address }}</p>
-        <p>{{ wedding.place.note }}</p>
+      <div class="place-list">
+        <div class="place-card place-card-compact">
+          <span class="label">{{ wedding.place.ceremony.label }}</span>
+          <h3>{{ wedding.place.ceremony.venue }}</h3>
+          <p>{{ wedding.place.ceremony.address }}</p>
+        </div>
       </div>
     </div>
 
@@ -48,14 +50,12 @@ defineProps({
           class="map-embed"
           :src="wedding.place.mapEmbedUrl"
           loading="lazy"
-          title="Карта места проведения"
+          title="Карта места проведения банкета"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <p class="map-title">Банкет</p>
       <p class="map-copy">
-        После росписи ждём вас на праздничный ужин в парк-отеле «Троя» по адресу: 1 Мая, 131, Краснодар. По
-        кнопке ниже можно сразу открыть маршрут.
+        Открыть маршрут до Екатерининского зала можно по кнопке.
       </p>
       <a class="button button-secondary" :href="wedding.place.mapUrl" target="_blank" rel="noreferrer">
         Открыть карту

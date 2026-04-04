@@ -720,7 +720,7 @@ textarea {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
-  margin: 28px 0 22px;
+  margin: 24px 0 18px;
 }
 
 .details-highlight > div {
@@ -744,6 +744,24 @@ textarea {
   overflow: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+.place-list {
+  display: grid;
+  gap: 14px;
+}
+
+.place-card-compact {
+  padding: 20px 22px;
+}
+
+.place-card-compact h3 {
+  margin-bottom: 8px;
+}
+
+.place-card-compact p {
+  margin: 0;
+  line-height: 1.6;
 }
 
 .map-frame {
